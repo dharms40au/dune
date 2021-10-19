@@ -1,0 +1,19 @@
+<p>user works!</p>
+
+<form [formGroup]="formGroup">
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="firstName" />
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastName" />
+    </mat-form-field>
+  </p>
+</form>
+
+<pre>Value: {{ formGroup.value | json }}</pre>
+<pre>Valid: {{ formGroup.valid }}</pre>
