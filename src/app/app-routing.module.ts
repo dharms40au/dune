@@ -8,6 +8,11 @@ const routes: Routes = [
     path: 'user',
     loadChildren: () => import('./user/user.module').then((m) => m.UsersModule),
   },
+  {
+    path: 'rxjs-land',
+    loadChildren: () =>
+      import('./rxjs-land/rxjs-land.module').then((m) => m.RxjsLandModule),
+  },
 ];
 
 @NgModule({
