@@ -36,6 +36,12 @@
       <mat-label>Email</mat-label>
       <input matInput formControlName="email" />
     </mat-form-field>
+    <mat-checkbox formControlName="hasCar">Owns Vehicle</mat-checkbox>
+    <mat-form-field appearance="fill">
+      <mat-label>Make Model</mat-label>
+      <input matInput formControlName="makeModel" />
+      <mat-error>Required</mat-error>
+    </mat-form-field>
   <button mat-button type="submit">Submit</button>
 </form>
 

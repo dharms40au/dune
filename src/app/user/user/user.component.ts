@@ -20,6 +20,8 @@ export class UserComponent implements OnInit, OnDestroy {
       [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')],
     ],
     email: [''],
+    hasCar: false,
+    makeModel: '',
   });
 
   subscriptions = new Subscription();
@@ -51,6 +53,29 @@ export class UserComponent implements OnInit, OnDestroy {
             }
             this.formGroup.get('spouseFirstName')?.updateValueAndValidity();
             this.formGroup.get('spouseLastName')?.updateValueAndValidity();
+          })
+        )
+        .subscribe()
+    );
+
+    this.subscriptions.add(
+      this.formGroup
+        .get('hasCar')
+        ?.valueChanges.pipe(
+          tap((hasCar) => {
+            if (hasCar) {
+              this.formGroup
+                .get('makeModel')
+                ?.setValidators(Validators.required);
+              this.formGroup
+                .get('makeModel')
+                ?.setValidators(Validators.required);
+            } else {
+              this.formGroup.get('makeModel')?.clearValidators();
+              this.formGroup.get('makeModel')?.clearValidators();
+            }
+            this.formGroup.get('makeModel')?.updateValueAndValidity();
+            this.formGroup.get('makeModel')?.updateValueAndValidity();
           })
         )
         .subscribe()
