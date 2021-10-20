@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './shared/material.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -14,6 +15,7 @@ import { MaterialModule } from './shared/material.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
+    FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

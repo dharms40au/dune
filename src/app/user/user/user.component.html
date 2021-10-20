@@ -1,45 +1,37 @@
-<p>user works!</p>
-
-<form [formGroup]="formGroup">
-  <p>
+<form [formGroup]="formGroup" fxLayout="column" fxLayoutAlign="space-around start">
     <mat-form-field appearance="fill">
       <mat-label>First Name</mat-label>
       <input matInput formControlName="firstName" />
-      <mat-error>Required</mat-error>
+      <mat-error *ngIf="formGroup.get('firstName')?.hasError('required')">Required.</mat-error>
+      <mat-error *ngIf="formGroup.get('firstName')?.hasError('maxlength')">Name cannot exceed 50 characters in length.</mat-error>
     </mat-form-field>
-  </p>
-  <p>
     <mat-form-field appearance="fill">
       <mat-label>Last Name</mat-label>
       <input matInput formControlName="lastName" />
-      <mat-error>Required</mat-error>
+      <mat-error *ngIf="formGroup.get('lastName')?.hasError('required')">Required.</mat-error>
+      <mat-error *ngIf="formGroup.get('lastName')?.hasError('maxlength')">Name cannot exceed 50 characters in length.</mat-error>
     </mat-form-field>
-  </p>
-  <p>
-    <mat-form-field appearance="fill">
-      <mat-label>Spouse First Name</mat-label>
-      <input matInput formControlName="spouseFirstName" />
-    </mat-form-field>
-  </p>
-  <p>
-    <mat-form-field appearance="fill">
-      <mat-label>Spouse Last Name</mat-label>
-      <input matInput formControlName="spouseLastName" />
-    </mat-form-field>
-  </p>
-  <p>
+    <mat-checkbox formControlName="married">Married</mat-checkbox>
+    <div *ngIf="formGroup.get('married')?.value" fxLayout="column">
+      <mat-form-field appearance="fill">
+        <mat-label>Spouse First Name</mat-label>
+        <input matInput formControlName="spouseFirstName" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Spouse Last Name</mat-label>
+        <input matInput formControlName="spouseLastName" />
+      </mat-form-field>
+    </div>
     <mat-form-field appearance="fill">
       <mat-label>Phone Number</mat-label>
       <input matInput formControlName="phoneNumber" />
-      <mat-error>Required</mat-error>
+      <mat-error *ngIf="formGroup.get('phoneNumber')?.hasError('required')">Required</mat-error>
+      <mat-error *ngIf="formGroup.get('phoneNumber')?.hasError('pattern')">Please enter a proper phone number</mat-error>
     </mat-form-field>
-  </p>
-  <p>
     <mat-form-field appearance="fill">
       <mat-label>Spouse Last Name</mat-label>
       <input matInput formControlName="email" />
     </mat-form-field>
-  </p>
   <button mat-button type="submit">Submit</button>
 </form>
 
