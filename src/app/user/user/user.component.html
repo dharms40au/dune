@@ -16,10 +16,14 @@
       <mat-form-field appearance="fill">
         <mat-label>Spouse First Name</mat-label>
         <input matInput formControlName="spouseFirstName" />
+        <mat-error *ngIf="formGroup.get('spouseFirstName')?.hasError('required')">Required.</mat-error>
+        <mat-error *ngIf="formGroup.get('spouseFirstName')?.hasError('maxlength')">Name cannot exceed 50 characters in length.</mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Spouse Last Name</mat-label>
         <input matInput formControlName="spouseLastName" />
+        <mat-error *ngIf="formGroup.get('spouseLastName')?.hasError('required')">Required.</mat-error>
+        <mat-error *ngIf="formGroup.get('spouseLastName')?.hasError('maxlength')">Name cannot exceed 50 characters in length.</mat-error>
       </mat-form-field>
     </div>
     <mat-form-field appearance="fill">
@@ -29,7 +33,7 @@
       <mat-error *ngIf="formGroup.get('phoneNumber')?.hasError('pattern')">Please enter a proper phone number</mat-error>
     </mat-form-field>
     <mat-form-field appearance="fill">
-      <mat-label>Spouse Last Name</mat-label>
+      <mat-label>Email</mat-label>
       <input matInput formControlName="email" />
     </mat-form-field>
   <button mat-button type="submit">Submit</button>
