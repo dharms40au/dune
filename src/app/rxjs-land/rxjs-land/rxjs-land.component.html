@@ -1,5 +1,8 @@
 <p>rxjs-land works!</p>
 
 <div *ngIf="users$ | async as users">
-  <pre *ngFor="let user of users">{{ user | json}}</pre>
+  <p>Users: {{users.length}}</p>
+  <p *ngFor="let user of users">{{ user.name }}</p>
 </div>
+
+<h2>Total Number of Todos: {{ (todos$ | async)?.length }}</h2>
