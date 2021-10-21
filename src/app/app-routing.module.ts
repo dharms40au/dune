@@ -13,6 +13,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./rxjs-land/rxjs-land.module').then((m) => m.RxjsLandModule),
   },
+  {
+    path: 'ngrx-land',
+    loadChildren: () =>
+      import('./ngrx-land/ngrx-land.module').then((m) => m.NgrxLandModule),
+  },
 ];
 
 @NgModule({
