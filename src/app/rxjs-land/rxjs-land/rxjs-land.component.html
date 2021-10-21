@@ -1,8 +1,24 @@
-<p>rxjs-land works!</p>
+<div class="dune-container">
+  <p>rxjs-land works!</p>
 
-<div *ngIf="users$ | async as users">
-  <p>Users: {{users.length}}</p>
-  <p *ngFor="let user of users">{{ user.name }}</p>
+  <div *ngIf="users$ | async as users">
+    <p>Users: {{users.length}}</p>
+    <p *ngFor="let user of users">{{ user.name }}</p>
+  </div>
+
+    <h2>Total Number of Todos: {{ (filteredTodos$ | async)?.length }}</h2>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Search By Title</mat-label>
+      <input matInput placeholder="Ex. lalala" [formControl]="searchFormControl">
+    </mat-form-field>
+    <p>{{ searchFormControl.value }}</p>
+    <ul *ngIf="filteredTodos$ | async as todos">
+      <li *ngFor="let todo of todos">{{todo.id}} -- {{todo.title}}</li>
+    </ul>
+    <div *ngIf="!(filteredTodos$ | async)">
+      <ul *ngIf="todos$ | async as todos">
+        <li *ngFor="let todo of todos">{{todo.id}} -- {{todo.title}}</li>
+      </ul>
+    </div>
 </div>
 
-<h2>Total Number of Todos: {{ (todos$ | async)?.length }}</h2>
