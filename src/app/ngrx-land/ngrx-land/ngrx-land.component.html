@@ -1,4 +1,6 @@
 <div class="dune-container">
   <p>ngrx-land works!</p>
+
+  <p *ngFor="let todo of todos$ | async">{{ todo.id}} - {{ todo.title}}</p>
 </div>
 
