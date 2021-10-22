@@ -5,7 +5,7 @@ import { ITodo } from '../shared/models/ITodo';
 
 @Injectable()
 export class NgrxLandService {
-  private baseUrl = 'https://jsonplaceholder.typicode.com/';
+  private baseUrl = 'http://localhost:3000/';
 
   constructor(private http: HttpClient) {}
 
