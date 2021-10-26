@@ -1,3 +1,4 @@
+import { LayoutModule } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -15,6 +16,7 @@ import { RxjsLandService } from './rxjs-land/rxjs-land.service';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    LayoutModule,
   ],
   declarations: [RxjsLandComponent],
   providers: [RxjsLandService],
